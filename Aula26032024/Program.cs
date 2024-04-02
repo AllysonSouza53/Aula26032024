@@ -46,29 +46,94 @@ namespace Aula26032024
             //}
             //Console.ReadKey();
 
-            Console.WriteLine("PARES OU IMPARES?:");
-            string n = Console.ReadLine();
-            int nn = 0;
+            //Console.WriteLine("PARES OU IMPARES?:");
+            //string n = Console.ReadLine();
+            //int nn = 0;
 
-            while (n == "P") 
+            //while (n == "P") 
+            //{
+            //    while (nn != 22) {
+            //        Console.WriteLine(nn);
+            //        nn+=2;
+            //        n = "A";
+            //    }
+            //}
+            //while (n == "I")
+            //{
+            //    nn = 1;
+            //    while (nn <= 20)
+            //    {
+            //        Console.WriteLine(nn);
+            //        nn += 2;
+            //        n = "A";
+            //    }
+            //}
+            //Console.ReadKey();
+
+            double ap = 0;
+            int qf = 0;
+            double sl = 0;
+            string Con = "S";
+            while (Con == "S")
             {
-                while (nn != 22) {
-                    Console.WriteLine(nn);
-                    nn+=2;
-                    n = "A";
-                }
-            }
-            while (n == "I")
-            {
-                nn = 1;
-                while (nn <= 20)
+                Console.Write("Forma de Contratação: ");
+                string Fc = (Console.ReadLine());
+                Console.WriteLine("____________________________________________________________________________");
+                switch (Fc)
                 {
-                    Console.WriteLine(nn);
-                    nn += 2;
-                    n = "A";
+                    case "A":
+                        Console.WriteLine("Selecionado: Assalariado");
+                        Console.WriteLine("");
+                        Console.Write("Salário (bruto): ");
+                        double sb = double.Parse((Console.ReadLine()));
+                        double d = 200.00;
+                        sl = sb - d;
+                        ap += sb - d;
+                        qf++;
+                        Console.WriteLine("____________________________________________________________________________");
+                        Console.WriteLine("Salario liquido: " + sl);
+                        Console.WriteLine("Desconto: " + d);
+                        break;
+                    case "C":
+                        Console.WriteLine("Selecionado: Comissionado");
+                        Console.WriteLine("");
+                        Console.Write("Quantidade de Vendas: ");
+                        int Qv = int.Parse((Console.ReadLine()));
+                        double vv = 10.5;
+                        sl = Qv * vv;
+                        ap += Qv * vv;
+                        qf++;
+
+                        Console.WriteLine("____________________________________________________________________________");
+                        Console.WriteLine("Salario liquido: " + sl);
+                        Console.WriteLine("Comissão por venda: " + vv);
+                        break;
+                    case "H":
+                        Console.WriteLine("Selecionado: Horista");
+                        Console.WriteLine("");
+                        Console.Write("Quantidade de horas trabalhadas: ");
+                        int Qh = int.Parse((Console.ReadLine()));
+                        double Vh = 10.50;
+                        sl = Qh * Vh;
+                        ap += Vh * Qh;
+                        qf++;
+                        Console.WriteLine("____________________________________________________________________________");
+                        Console.WriteLine("Salario liquido: " + sl);
+                        Console.WriteLine("Valor por hora: " + Vh);
+                        break;
+                    default:
+                        Console.WriteLine("ERROR.Forma invalida");
+                        break;
                 }
+                Console.WriteLine("____________________________________________________________________________");
+                Console.WriteLine("Deseja cadastrar outro funcionario?");
+                Con = Console.ReadLine();
+                Console.Clear();
             }
-            Console.ReadKey(); 
+
+            Console.WriteLine("Total liquido à pagar: "+ ap);
+            Console.WriteLine("Quantidade de funcionarios cadastrados: " + qf);
+            Console.ReadKey();
         }
     }
 }
